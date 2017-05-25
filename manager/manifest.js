@@ -10,14 +10,14 @@ module.exports = {
     $filename: 'kobie.json',
     $root: process.cwd(),
     $module_path: Dir + '/' + Pkg.name,
-    $manifest: {},
+    $data: {},
 
     init: function() {
         var _this = this;
         try {
-            _this.$manifest = _this.get();
+            _this.$data = _this.get();
         } catch (e) {
-            throw new Error(Chalk.red(_this.$filename + 'file not found in project root.'));
+            throw new Error(Chalk.red(_this.$filename + ' file not found in project root.'));
         }
     },
 
@@ -32,18 +32,15 @@ module.exports = {
 
     get: function() {
         var _this = this;
-        return JSON.parse(
-            Fs.readFileSync(Utils.pathify(_this.$manifest.path + '/' + _this.$filename))
-        );
+        return JSON.parse(Fs.readFileSync(Utils.pathify(_this.$root + '/' + _this.$filename)));
     },
 
     save: function(data, callback) {
         var _this = this;
-        _this.$manifest = Utils.merge(_this.$manifest, data);
-        console.log(Utils.pathify(this.$root + '/' + _this.$filename));
+        _this.$data = Utils.merge(_this.$data, data);
         Fs.writeFile(
             Utils.pathify(this.$root + '/' + _this.$filename),
-            JSON.stringify(_this.$manifest, null, 4),
+            JSON.stringify(_this.$data, null, 4),
             function(err) {
                 if (err) {
                     throw new Error(Chalk.red('Kobie has already been initialized.'));

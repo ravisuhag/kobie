@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+'use strict';
+
 const Program = require('commander');
 const Chalk = require('chalk');
 const Engine = require('./engine');

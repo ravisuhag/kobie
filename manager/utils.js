@@ -12,9 +12,9 @@ module.exports = {
 
     merge: function(source, target) {
         target = target ? target : {};
-        for (var key in source) {
-            if (!target.hasOwnProperty(key)) {
-                target[key] = source[key];
+        for (var key in target) {
+            if (source.hasOwnProperty(key)) {
+                source[key] = target[key];
             }
         }
         return source;

@@ -4,7 +4,7 @@ const Program = require('commander');
 const Chalk = require('chalk');
 const Updater = require('update-notifier');
 const Engine = require('./engine');
-const Manifest = require('./engine');
+const Manifest = require('./manifest');
 const Pkg = require('../package.json');
 
 Updater({ pkg: Pkg }).notify();
@@ -32,11 +32,11 @@ if (Program.instance) {
         if (Manifest.get()) {
             Manifest.init();
             console.log(
-                Chalk.grey('This Kobie instance version is: ') +
-                    Chalk.green(Manifest.$manifest.version)
+                Chalk.grey('This Kobie instance version is: ') + Chalk.green(Manifest.$data.version)
             );
         }
     } catch (e) {
+        console.log(e);
         console.log(Chalk.red('Kobie has not been initialised.'));
     }
 }
