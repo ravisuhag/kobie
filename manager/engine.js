@@ -41,16 +41,7 @@ module.exports = {
         });
     },
 
-    list: function(components, groups) {
-        console.log();
-        console.log(Chalk.grey('Legend:'));
-        console.log(Chalk.grey('----------------------------------------------------------------'));
-        console.log('[i]: index');
-        console.log('%s: group', Chalk.green('green'));
-        console.log('%s: component', Chalk.yellow('yellow'));
-        console.log(Chalk.grey('----------------------------------------------------------------'));
-        console.log();
-
+    list: function(interactions, groups) {
         if (groups.length) {
             for (var i = 0; i < groups.length; i++) {
                 var g = groups[i];
@@ -58,8 +49,8 @@ module.exports = {
                 console.log('[%s] %s:', i, Chalk.green(g.name));
 
                 var k = 0;
-                for (var j = 0; j < groups[i].components.length; j++) {
-                    var c = groups[i].components[j];
+                for (var j = 0; j < groups[i].interactions.length; j++) {
+                    var c = groups[i].interactions[j];
 
                     if (c.group === g.name) {
                         console.log(
@@ -75,7 +66,6 @@ module.exports = {
         } else {
             console.log('Your architecture repository is empty.');
         }
-
         console.log();
     }
 };

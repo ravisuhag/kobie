@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans';
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+
+/**
+ * Sidebar
+ * ----------------------------------------//
+ */
+
+.sidebar {
+    position: fixed;
+    position: fixed;
+    z-index: 9997;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+    width: 264px;
+    padding: 0;
+    background-color: #fff;
+    box-shadow: 1px 0 2px rgba(0, 0, 0, .2);
+}
+
+.sidebar__logo {
+    float: left;
+    max-height: 50px;
+    margin: 0 0 24px 0;
+}
+
+.sidebar__header {
+    display: block;
+    padding: 24px 24px 36px;
+}
+
+.sidebar__title {
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    display: block;
+    clear: left;
+    margin: 0;
+    color: #303637;
+}
+
+.sidebar__title a {
+    text-decoration: none;
+}
+
+.sidebar__title a:hover {
+    color: #fea1ac;
+}
+
+.sidebar__title small {
+    font-size: 16px;
+    font-weight: 400;
+    display: block;
+}

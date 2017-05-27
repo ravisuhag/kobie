@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+    WebFont.load({
+        google: {
+            families: ['Open Sans']
+        }
+    });
+    </script>
+    <link rel="stylesheet" href="app/css/styles.css">
+</head>
+
+<body>
+    <div data-app="kobie" class="kobie">
+        <div class="sidebar">
+            <header class="sidebar__header">
+                <img class="sidebar__logo" :src="project_logo" :alt="project_name" v-if="project_logo" />
+                <h1 class="sidebar__title">
+                    <span v-if="theme.show_project_name" v-html="project"></span>
+                    <small v-if="theme.titles.library_title" v-text="theme.titles.library_title"></small>
+                </h1>
+            </header>
+        </div>
+    </div>
+    <script src="app/js/main.min.js"></script>
+</body>
+
+</html>
