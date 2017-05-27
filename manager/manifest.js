@@ -252,5 +252,37 @@ module.exports = {
                 });
             }
         });
+    },
+
+    getGroupInteractionCount: function(group) {
+        return this.$data.groups[this.getGroupIndex(group)].interactions.length;
+    },
+
+    deleteGroupFolder: function(group) {
+        var _this = this, group_path = this.$root + '/interactions/' + group, error = false;
+
+        Fs.remove(Utils.pathify(group_path), function(err) {
+            if (err) {
+                console.log(Chalk.red('Error: ' + err));
+                error = true;
+            }
+        });
+
+        return !error;
+    },
+
+    deleteInteractionFiles: function(group_name) {
+        var _this = this,
+            interaction_path = this.$root + '/interactions/' + group_name,
+            error = false;
+
+        Fs.remove(Utils.pathify(interaction_path), function(err) {
+            if (err) {
+                console.log(Chalk.red('Error: ' + err));
+                error = true;
+            }
+        });
+
+        return !error;
     }
 };
